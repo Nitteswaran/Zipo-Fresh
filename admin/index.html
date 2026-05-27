@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en-MY">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin — Zipo Fresh Blog Manager</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,700;1,9..144,400;1,9..144,700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    body{background:var(--bg)}
+    .admin-layout{min-height:100vh;display:grid;grid-template-columns:260px 1fr}
+    .admin-sidebar{background:var(--bg-surface);border-right:1px solid var(--border);padding:var(--sp-5) var(--sp-4);display:flex;flex-direction:column;gap:var(--sp-2)}
+    .richtext{min-height:200px;font-family:monospace;font-size:.875rem;line-height:1.6;background:var(--bg-card)}
+    .toast{
+      position:fixed;bottom:2rem;right:2rem;
+      background:var(--lime);color:var(--black);
+      padding:.75rem 1.5rem;border-radius:var(--r-full);
+      font-weight:700;font-size:var(--text-sm);
+      opacity:0;transform:translateY(8px);
+      transition:all 350ms;pointer-events:none;z-index:999;
+    }
+    .toast.show{opacity:1;transform:translateY(0)}
+    @media(max-width:768px){.admin-layout{grid-template-columns:1fr}.admin-sidebar{display:none}}
+  </style>
+</head>
+<body>
+
+<div class="admin-layout">
+  <!-- Sidebar -->
+  <aside class="admin-sidebar">
+    <div class="admin-logo">Zipo<span>Admin</span></div>
+    <nav class="admin-nav">
+      <button class="admin-nav-btn active" onclick="showPanel('posts')">📰 Blog Posts</button>
+      <button class="admin-nav-btn" onclick="showPanel('new-post')">✍️ New Post</button>
+      <button class="admin-nav-btn" onclick="showPanel('export')">📦 Export Data</button>
+      <button class="admin-nav-btn" onclick="showPanel('guide')">📖 How to Use</button>
+    </nav>
+    <div style="margin-top:auto;padding-top:var(--sp-4);border-top:1px solid var(--border)">
+      <a href="../index.html" class="btn btn--outline btn--sm" style="width:100%;justify-content:center">← View Website</a>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="admin-main">
+
+    <!-- ── POSTS LIST PANEL ── -->
+    <div id="panel-posts" class="admin-panel active">
+      <div class="admin-topbar">
+        <h1 class="admin-page-title">Blog Posts</h1>
+        <button class="btn btn--lime btn--sm" onclick="showPanel('new-post')">+ New Post</button>
+      </div>
+      <div id="posts-list" class="admin-posts-list">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+
+    <!-- ── NEW/EDIT POST PANEL ── -->
+    <div id="panel-new-post" class="admin-panel">
+      <div class="admin-topbar">
+        <h1 class="admin-page-title" id="form-title">New Post</h1>
+        <button class="btn btn--outline btn--sm" onclick="cancelEdit()">Cancel</button>
+      </div>
+      <form id="post-form" class="admin-form" onsubmit="savePost(event)">
+        <input type="hidden" id="edit-id">
+        <div class="form-group">
+          <label class="form-label">Post Title *</label>
+          <input type="text" id="p-title" class="form-input" placeholder="e.g. 5 Fresh Fruits to Buy in Ipoh This Week" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">URL Slug * (no spaces, use hyphens)</label>
+          <input type="text" id="p-slug" class="form-input" placeholder="e.g. fresh-fruits-ipoh-this-week" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Category *</label>
+          <select id="p-cat" class="form-input" required>
+            <option value="">Select category…</option>
+            <option value="Fresh Produce">Fresh Produce</option>
+            <option value="Health &amp; Nutrition">Health &amp; Nutrition</option>
+            <option value="Community">Community</option>
+            <option value="Seasonal">Seasonal</option>
+            <option value="Recipes">Recipes</option>
+            <option value="News">News</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Publish Date *</label>
+          <input type="date" id="p-date" class="form-input" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Author</label>
+          <input type="text" id="p-author" class="form-input" value="Zipo Fresh Team">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Read Time</label>
+          <input type="text" id="p-readtime" class="form-input" placeholder="e.g. 4 min read" value="3 min read">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Image Path (relative from root, e.g. images/fruits.png)</label>
+          <input type="text" id="p-image" class="form-input" placeholder="images/fruits.png" value="images/fruits.png">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Excerpt * (1–2 sentence summary for SEO)</label>
+          <textarea id="p-excerpt" class="form-textarea" style="min-height:80px" placeholder="A short, SEO-friendly description of the post." required></textarea>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Content * (HTML allowed — use &lt;h2&gt;, &lt;p&gt;, &lt;strong&gt;, &lt;ul&gt;, &lt;blockquote&gt;)</label>
+          <textarea id="p-content" class="form-textarea richtext" style="min-height:320px" placeholder="&lt;p&gt;Your article content here…&lt;/p&gt;&#10;&lt;h2&gt;Section Heading&lt;/h2&gt;&#10;&lt;p&gt;More content…&lt;/p&gt;" required></textarea>
+        </div>
+        <div style="display:flex;gap:.75rem">
+          <button type="submit" class="btn btn--lime">💾 Save Post</button>
+          <button type="button" class="btn btn--outline" onclick="cancelEdit()">Cancel</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- ── EXPORT PANEL ── -->
+    <div id="panel-export" class="admin-panel">
+      <div class="admin-topbar">
+        <h1 class="admin-page-title">Export Blog Data</h1>
+        <button class="btn btn--lime btn--sm" onclick="copyExport()">Copy to Clipboard</button>
+      </div>
+      <div style="margin-bottom:var(--sp-4);padding:var(--sp-4);background:var(--bg-card);border:1px solid var(--border);border-radius:var(--r-md)">
+        <p style="font-size:var(--text-sm);color:var(--t2);line-height:1.7">
+          <strong style="color:var(--t1)">How to publish your posts:</strong><br>
+          1. Click "Copy to Clipboard" above<br>
+          2. Open the file <code style="color:var(--lime);background:var(--lime-muted);padding:.1em .4em;border-radius:3px">data/posts.js</code> in a text editor<br>
+          3. Replace the entire contents with the copied text<br>
+          4. Save the file and your posts will go live instantly
+        </p>
+      </div>
+      <div class="export-box">
+        <pre id="export-output">// Generating…</pre>
+      </div>
+    </div>
+
+    <!-- ── GUIDE PANEL ── -->
+    <div id="panel-guide" class="admin-panel">
+      <div class="admin-topbar">
+        <h1 class="admin-page-title">How to Use This Admin</h1>
+      </div>
+      <div style="max-width:680px;display:flex;flex-direction:column;gap:var(--sp-4)">
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--r-lg);padding:var(--sp-4)">
+          <h3 style="font-size:var(--text-xl);font-weight:700;margin-bottom:var(--sp-2)">📰 Step 1 — Write a Post</h3>
+          <p style="color:var(--t2);font-size:var(--text-sm);line-height:1.7">Go to <strong>"New Post"</strong> in the sidebar. Fill in all the fields. For the content, you can use simple HTML tags like &lt;p&gt;, &lt;h2&gt;, &lt;strong&gt;, &lt;em&gt;, &lt;ul&gt;, &lt;blockquote&gt;. Click <strong>"Save Post"</strong>.</p>
+        </div>
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--r-lg);padding:var(--sp-4)">
+          <h3 style="font-size:var(--text-xl);font-weight:700;margin-bottom:var(--sp-2)">📦 Step 2 — Export</h3>
+          <p style="color:var(--t2);font-size:var(--text-sm);line-height:1.7">Go to <strong>"Export Data"</strong>. Click <strong>"Copy to Clipboard"</strong>. This gives you the complete <code style="color:var(--lime)">posts.js</code> file content with all your posts.</p>
+        </div>
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--r-lg);padding:var(--sp-4)">
+          <h3 style="font-size:var(--text-xl);font-weight:700;margin-bottom:var(--sp-2)">💾 Step 3 — Publish</h3>
+          <p style="color:var(--t2);font-size:var(--text-sm);line-height:1.7">Open <code style="color:var(--lime)">data/posts.js</code> in any text editor (Notepad works fine). Paste the copied content, replacing everything. Save. Done — your post is live!</p>
+        </div>
+        <div style="background:rgba(181,242,61,.06);border:1px solid var(--lime-bdr);border-radius:var(--r-lg);padding:var(--sp-4)">
+          <h3 style="font-size:var(--text-xl);font-weight:700;margin-bottom:var(--sp-2);color:var(--lime)">💡 SEO Tips for Posts</h3>
+          <ul style="color:var(--t2);font-size:var(--text-sm);line-height:1.9;padding-left:1.25rem;list-style:disc">
+            <li>Include "Ipoh" and "Zipo Fresh" in your title naturally</li>
+            <li>Keep your excerpt to 1–2 sentences, keyword-rich</li>
+            <li>Use one &lt;h2&gt; for each main section of your post</li>
+            <li>Mention the store address or location in at least one post paragraph</li>
+            <li>Post regularly — even monthly is better than never</li>
+            <li>Topics that rank well: seasonal produce, local tips, healthy eating, Malaysian food</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- Toast Notification -->
+<div class="toast" id="toast">✓ Saved!</div>
+
+<script src="../data/posts.js"></script>
+<script>
+'use strict';
+
+// Load posts from localStorage or seed from posts.js
+let posts = [];
+try {
+  const stored = localStorage.getItem('zipofresh_posts');
+  if (stored) {
+    posts = JSON.parse(stored);
+  } else if (typeof BLOG_POSTS !== 'undefined') {
+    posts = JSON.parse(JSON.stringify(BLOG_POSTS));
+    savePosts();
+  }
+} catch(e) {
+  posts = (typeof BLOG_POSTS !== 'undefined') ? JSON.parse(JSON.stringify(BLOG_POSTS)) : [];
+}
+
+function savePosts() {
+  localStorage.setItem('zipofresh_posts', JSON.stringify(posts));
+}
+
+function showPanel(name) {
+  document.querySelectorAll('.admin-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.admin-nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('panel-' + name)?.classList.add('active');
+  document.querySelectorAll('.admin-nav-btn').forEach(b => {
+    if (b.textContent.toLowerCase().includes(name.replace('-', ' ').split(' ')[0])) {
+      b.classList.add('active');
+    }
+  });
+  if (name === 'posts') renderPostsList();
+  if (name === 'export') renderExport();
+}
+
+function renderPostsList() {
+  const container = document.getElementById('posts-list');
+  if (!posts.length) {
+    container.innerHTML = '<div class="admin-empty">No posts yet. Click "+ New Post" to write your first article.</div>';
+    return;
+  }
+  container.innerHTML = posts.map(p => `
+    <div class="admin-post-item">
+      <div>
+        <p class="admin-post-item__title">${p.title}</p>
+        <p class="admin-post-item__meta">${p.category} · ${p.date} · ${p.readTime}</p>
+      </div>
+      <div class="admin-post-item__actions">
+        <button class="btn btn--outline btn--sm" onclick="editPost(${p.id})">Edit</button>
+        <button class="btn btn--sm" style="color:#ff5050;border:1px solid rgba(255,80,80,.3);background:rgba(255,80,80,.06)" onclick="deletePost(${p.id})">Delete</button>
+        <a href="../blog-post.html?slug=${p.slug}" target="_blank" class="btn btn--outline btn--sm">View ↗</a>
+      </div>
+    </div>`).join('');
+}
+
+function editPost(id) {
+  const p = posts.find(x => x.id === id);
+  if (!p) return;
+  document.getElementById('form-title').textContent = 'Edit Post';
+  document.getElementById('edit-id').value = id;
+  document.getElementById('p-title').value = p.title;
+  document.getElementById('p-slug').value = p.slug;
+  document.getElementById('p-cat').value = p.category;
+  document.getElementById('p-date').value = p.date;
+  document.getElementById('p-author').value = p.author;
+  document.getElementById('p-readtime').value = p.readTime;
+  document.getElementById('p-image').value = p.image;
+  document.getElementById('p-excerpt').value = p.excerpt;
+  document.getElementById('p-content').value = p.content.trim();
+  showPanel('new-post');
+}
+
+function deletePost(id) {
+  if (!confirm('Delete this post? This cannot be undone.')) return;
+  posts = posts.filter(p => p.id !== id);
+  savePosts();
+  renderPostsList();
+  showToast('Post deleted');
+}
+
+function cancelEdit() {
+  document.getElementById('post-form').reset();
+  document.getElementById('edit-id').value = '';
+  document.getElementById('form-title').textContent = 'New Post';
+  showPanel('posts');
+}
+
+document.getElementById('p-title').addEventListener('input', function() {
+  const slugInput = document.getElementById('p-slug');
+  if (!document.getElementById('edit-id').value) {
+    slugInput.value = this.value.toLowerCase()
+      .replace(/[^a-z0-9\s-]/g, '')
+      .replace(/\s+/g, '-')
+      .replace(/-+/g, '-')
+      .substring(0, 80);
+  }
+});
+
+function savePost(e) {
+  e.preventDefault();
+  const editId = parseInt(document.getElementById('edit-id').value);
+  const post = {
+    id: editId || (posts.length ? Math.max(...posts.map(p => p.id)) + 1 : 1),
+    slug:     document.getElementById('p-slug').value.trim(),
+    title:    document.getElementById('p-title').value.trim(),
+    category: document.getElementById('p-cat').value,
+    date:     document.getElementById('p-date').value,
+    author:   document.getElementById('p-author').value.trim() || 'Zipo Fresh Team',
+    readTime: document.getElementById('p-readtime').value.trim() || '3 min read',
+    image:    document.getElementById('p-image').value.trim() || 'images/fruits.png',
+    excerpt:  document.getElementById('p-excerpt').value.trim(),
+    content:  document.getElementById('p-content').value.trim(),
+  };
+  if (editId) {
+    const idx = posts.findIndex(p => p.id === editId);
+    if (idx !== -1) posts[idx] = post;
+  } else {
+    posts.unshift(post);
+  }
+  savePosts();
+  document.getElementById('post-form').reset();
+  document.getElementById('edit-id').value = '';
+  document.getElementById('form-title').textContent = 'New Post';
+  showToast('Post saved! Don\'t forget to Export & publish.');
+  showPanel('posts');
+}
+
+function renderExport() {
+  const output = `/* ============================================================
+   ZIPO FRESH — Blog Posts Data
+   Generated: ${new Date().toLocaleDateString('en-MY')}
+   Total posts: ${posts.length}
+   ============================================================ */
+
+const BLOG_POSTS = ${JSON.stringify(posts, null, 2)};`;
+  document.getElementById('export-output').textContent = output;
+}
+
+function copyExport() {
+  renderExport();
+  const text = document.getElementById('export-output').textContent;
+  navigator.clipboard.writeText(text).then(() => {
+    showToast('Copied! Now paste into data/posts.js');
+  }).catch(() => {
+    document.getElementById('export-output').select?.();
+    showToast('Select all text above and copy manually');
+  });
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = '✓ ' + msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3500);
+}
+
+// Init
+renderPostsList();
+document.getElementById('p-date').value = new Date().toISOString().split('T')[0];
+</script>
+</body>
+</html>

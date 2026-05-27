@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+
+# Sitemap
+Sitemap: https://zipofresh.com.my/sitemap.xml
+
+# Crawl-delay (optional, be polite)
+Crawl-delay: 1

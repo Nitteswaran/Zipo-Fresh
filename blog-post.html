@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en-MY">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog Post | Zipo Fresh — Ipoh, Perak</title>
+  <meta name="description" content="Fresh tips and guides from Zipo Fresh, your neighbourhood grocery store in Taman Musim Bunga, Ipoh.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Zipo Fresh">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,700;1,9..144,400;1,9..144,700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="nav" role="navigation">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo" aria-label="Zipo Fresh Home">
+      <span class="nav__logo-dot" aria-hidden="true"></span>Zipo Fresh
+    </a>
+    <ul class="nav__links">
+      <li><a href="index.html"   class="nav__link">Home</a></li>
+      <li><a href="shop.html"    class="nav__link">Shop</a></li>
+      <li><a href="blog.html"    class="nav__link">Blog</a></li>
+      <li><a href="about.html"   class="nav__link">About</a></li>
+      <li><a href="contact.html" class="nav__link">Contact</a></li>
+    </ul>
+    <div class="nav__actions">
+      <a href="blog.html" class="btn btn--outline btn--sm">← All Posts</a>
+    </div>
+    <button class="nav__ham" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<nav class="nav__drawer">
+  <a href="index.html"   class="nav__drawer-link">Home</a>
+  <a href="shop.html"    class="nav__drawer-link">Shop</a>
+  <a href="blog.html"    class="nav__drawer-link">Blog</a>
+  <a href="about.html"   class="nav__drawer-link">About</a>
+  <a href="contact.html" class="nav__drawer-link">Contact</a>
+  <a href="blog.html" class="btn btn--outline" style="margin-top:auto">← All Posts</a>
+</nav>
+
+<main>
+  <!-- Post content injected by JS based on ?slug= URL param -->
+  <div id="post-render">
+    <div style="min-height:80vh;display:flex;align-items:center;justify-content:center;padding:var(--sp-5)">
+      <div style="text-align:center">
+        <div style="font-size:3rem;margin-bottom:var(--sp-3)">📰</div>
+        <p style="color:var(--t2);font-size:var(--text-lg)">Loading post…</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Back to blog + related CTA -->
+  <section class="section--xs" style="border-top:1px solid var(--border)">
+    <div class="container" style="text-align:center">
+      <a href="blog.html" class="btn btn--outline" style="margin-right:var(--sp-2)">← All Blog Posts</a>
+      <a href="index.html" class="btn btn--lime">Visit Zipo Fresh</a>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a href="index.html" class="nav__logo"><span class="nav__logo-dot"></span>Zipo Fresh</a>
+        <p>Your trusted neighbourhood grocery store in Taman Musim Bunga, Ipoh. Open every day 7AM–9PM.</p>
+        <div class="footer__social">
+          <a href="#" class="footer__soc-link" aria-label="Facebook">📘</a>
+          <a href="#" class="footer__soc-link" aria-label="Instagram">📷</a>
+          <a href="https://wa.me/601XXXXXXXXX" class="footer__soc-link" aria-label="WhatsApp" target="_blank" rel="noopener">💬</a>
+        </div>
+      </div>
+      <div>
+        <h3 class="footer__col-title">Pages</h3>
+        <ul class="footer__links">
+          <li><a href="index.html" class="footer__link">Home</a></li>
+          <li><a href="shop.html" class="footer__link">Shop</a></li>
+          <li><a href="blog.html" class="footer__link">Blog</a></li>
+          <li><a href="about.html" class="footer__link">About</a></li>
+          <li><a href="contact.html" class="footer__link">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="footer__col-title">Categories</h3>
+        <ul class="footer__links">
+          <li><a href="shop.html?cat=fruits" class="footer__link">Fresh Fruits</a></li>
+          <li><a href="shop.html?cat=vegetables" class="footer__link">Vegetables</a></li>
+          <li><a href="shop.html?cat=dairy" class="footer__link">Dairy &amp; Eggs</a></li>
+          <li><a href="shop.html?cat=meat" class="footer__link">Meat &amp; Seafood</a></li>
+          <li><a href="shop.html?cat=beverages" class="footer__link">Beverages</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="footer__col-title">Visit Us</h3>
+        <ul class="footer__links">
+          <li class="footer__link">📍 No 751, Jalan Tasek, Taman Musim Bunga, 31400 Ipoh</li>
+          <li class="footer__link">🕖 Open Daily: 7AM – 9PM</li>
+          <li><a href="https://wa.me/601XXXXXXXXX" class="footer__link" target="_blank" rel="noopener">💬 WhatsApp Us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bot">
+      <p class="footer__copy">© <span class="js-year"></span> Zipo Fresh — Ipoh, Perak</p>
+      <nav class="footer__legal"><a href="#">Privacy</a><a href="#">Terms</a></nav>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/601XXXXXXXXX" class="whatsapp-fab" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
+<a href="#" class="back-top" aria-label="Back to top">↑</a>
+
+<script src="data/posts.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

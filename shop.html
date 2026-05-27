@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en-MY">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop — Fresh Groceries in Ipoh | Zipo Fresh</title>
+  <meta name="description" content="Browse fresh fruits, vegetables, dairy, meat, beverages and more at Zipo Fresh, Ipoh. Fresh daily deliveries at Taman Musim Bunga, Jalan Tasek.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://zipofresh.com.my/shop.html">
+  <meta property="og:title" content="Shop Fresh Groceries — Zipo Fresh Ipoh">
+  <meta property="og:description" content="Browse fresh produce, dairy, meat and essentials at Zipo Fresh in Taman Musim Bunga, Ipoh.">
+  <meta property="og:image" content="https://zipofresh.com.my/images/fruits.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,700;1,9..144,400;1,9..144,700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Nav -->
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo" aria-label="Zipo Fresh Home">
+      <span class="nav__logo-dot" aria-hidden="true"></span>Zipo Fresh
+    </a>
+    <ul class="nav__links" role="list">
+      <li><a href="index.html"   class="nav__link">Home</a></li>
+      <li><a href="shop.html"    class="nav__link">Shop</a></li>
+      <li><a href="blog.html"    class="nav__link">Blog</a></li>
+      <li><a href="about.html"   class="nav__link">About</a></li>
+      <li><a href="contact.html" class="nav__link">Contact</a></li>
+    </ul>
+    <div class="nav__actions">
+      <a href="contact.html" class="btn btn--outline btn--sm">📍 Find Us</a>
+    </div>
+    <button class="nav__ham" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<nav class="nav__drawer" aria-label="Mobile navigation">
+  <a href="index.html"   class="nav__drawer-link">Home</a>
+  <a href="shop.html"    class="nav__drawer-link">Shop</a>
+  <a href="blog.html"    class="nav__drawer-link">Blog</a>
+  <a href="about.html"   class="nav__drawer-link">About</a>
+  <a href="contact.html" class="nav__drawer-link">Contact</a>
+  <a href="contact.html" class="btn btn--lime" style="margin-top:auto">📍 Find Us in Ipoh</a>
+</nav>
+
+<main>
+<!-- Page Hero -->
+<section class="page-hero" aria-labelledby="shop-heading">
+  <div class="page-hero__container">
+    <p class="page-hero__label">Zipo Fresh</p>
+    <h1 class="page-hero__title" id="shop-heading">What We <em style="font-family:var(--ff-d);font-style:italic;color:var(--lime);font-weight:400">Stock</em></h1>
+    <p class="page-hero__body">Fresh produce and quality essentials delivered daily to our store in Taman Musim Bunga, Ipoh. Browse by category below.</p>
+  </div>
+</section>
+
+<!-- Shop Section -->
+<section class="section">
+  <div class="container">
+    <!-- Filter Bar -->
+    <div class="filter-bar" data-filter-group role="group" aria-label="Filter by category">
+      <button class="filter-chip active" data-filter="all">All Products</button>
+      <button class="filter-chip" data-filter="fruits">🍓 Fruits</button>
+      <button class="filter-chip" data-filter="vegetables">🥬 Vegetables</button>
+      <button class="filter-chip" data-filter="dairy">🥛 Dairy &amp; Eggs</button>
+      <button class="filter-chip" data-filter="meat">🥩 Meat &amp; Seafood</button>
+      <button class="filter-chip" data-filter="bakery">🍞 Bakery</button>
+      <button class="filter-chip" data-filter="beverages">🧃 Beverages</button>
+      <button class="filter-chip" data-filter="household">🏠 Household</button>
+    </div>
+
+    <!-- Gallery Grid -->
+    <div class="gallery-grid" role="list" aria-label="Product gallery">
+
+      <!-- Fruits -->
+      <div class="gal-grid-item reveal" data-cat="fruits" role="listitem">
+        <img src="images/fruits.png" alt="Fresh tropical fruits — mangoes, rambutans, dragon fruit at Zipo Fresh Ipoh" loading="lazy" width="280" height="210">
+        <div class="gal-grid-item__label">🍓 Fresh Tropical Fruits</div>
+      </div>
+      <div class="gal-grid-item reveal reveal-d1" data-cat="fruits" role="listitem">
+        <div class="placeholder-img">🍌</div>
+        <div class="gal-grid-item__label">🍌 Bananas &amp; Citrus</div>
+      </div>
+      <div class="gal-grid-item reveal reveal-d2" data-cat="fruits" role="listitem">
+        <div class="placeholder-img">🍉</div>
+        <div class="gal-grid-item__label">🍉 Watermelons &amp; Melons</div>
+      </div>
+
+      <!-- Vegetables -->
+      <div class="gal-grid-item reveal" data-cat="vegetables" role="listitem">
+        <div class="placeholder-img">🥬</div>
+        <div class="gal-grid-item__label">🥬 Leafy Greens — Kangkung, Bayam</div>
+      </div>
+      <div class="gal-grid-item reveal reveal-d1" data-cat="vegetables" role="listitem">
+        <div class="placeholder-img">🥦</div>
+        <div class="gal-grid-item__label">🥦 Broccoli, Kailan &amp; More</div>
+      </div>
+      <div class="gal-grid-item reveal reveal-d2" data-cat="vegetables" role="listitem">
+        <div class="placeholder-img">🌽</div>
+        <div class="gal-grid-item__label">🌽 Corn, Carrots &amp; Root Veg</div>
+      </div>
+
+      <!-- Dairy -->
+      <div class="gal-grid-item reveal" data-cat="dairy" role="listitem">
+        <div class="placeholder-img">🥛</div>
+        <div class="gal-grid-item__label">🥛 Fresh Milk &amp; Yoghurt</div>
+      </div>
+      <div class="gal-grid-item reveal reveal-d1" data-cat="dairy" role="listitem">
+        <div class="placeholder-img">🥚</div>
+        <div class="gal-grid-item__label">🥚 Farm Fresh Eggs</div>
+      </div>
+      <div class="gal-grid-item reveal reveal-d2" data-cat="dairy" role="listitem">
+        <div class="placeholder-img">🧀</div>
+        <div class="gal-grid-item__label">🧀 Cheese &amp; Butter</div>
+      </div>
+
+      <!-- Meat -->
+      <div class="gal-grid-item reveal" data-cat="meat" role="listitem">
+        <div class="placeholder-img">🥩</div>
+        <div class="gal-grid-item__label">🥩 Fresh Chicken &amp; Beef</div>
+      </div>
+      <div class="gal-grid-item reveal reveal-d1" data-cat="meat" role="listitem">
+        <div class="placeholder-img">🐟</div>
+        <div class="gal-grid-item__label">🐟 Fresh Seafood &amp; Fish</div>
+      </div>
+
+      <!-- Bakery -->
+      <div class="gal-grid-item reveal" data-cat="bakery" role="listitem">
+        <div class="placeholder-img">🍞</div>
+        <div class="gal-grid-item__label">🍞 Fresh Bread &amp; Rolls</div>
+      </div>
+      <div class="gal-grid-item reveal reveal-d1" data-cat="bakery" role="listitem">
+        <div class="placeholder-img">🥐</div>
+        <div class="gal-grid-item__label">🥐 Pastries &amp; Croissants</div>
+      </div>
+
+      <!-- Beverages -->
+      <div class="gal-grid-item reveal" data-cat="beverages" role="listitem">
+        <div class="placeholder-img">🧃</div>
+        <div class="gal-grid-item__label">🧃 Juices &amp; Soft Drinks</div>
+      </div>
+      <div class="gal-grid-item reveal reveal-d1" data-cat="beverages" role="listitem">
+        <div class="placeholder-img">☕</div>
+        <div class="gal-grid-item__label">☕ Coffee, Tea &amp; Teh Tarik</div>
+      </div>
+      <div class="gal-grid-item reveal reveal-d2" data-cat="beverages" role="listitem">
+        <div class="placeholder-img">🥥</div>
+        <div class="gal-grid-item__label">🥥 Fresh Coconut Water</div>
+      </div>
+
+      <!-- Household -->
+      <div class="gal-grid-item reveal" data-cat="household" role="listitem">
+        <img src="images/shopping.png" alt="Household essentials and cleaning products at Zipo Fresh grocery store Ipoh" loading="lazy" width="280" height="210">
+        <div class="gal-grid-item__label">🏠 Household Essentials</div>
+      </div>
+      <div class="gal-grid-item reveal reveal-d1" data-cat="household" role="listitem">
+        <img src="images/cart.png" alt="Daily grocery essentials available at Zipo Fresh in Taman Musim Bunga Ipoh" loading="lazy" width="280" height="210">
+        <div class="gal-grid-item__label">🛒 Daily Essentials</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Visit CTA -->
+<section class="section--xs" style="background:var(--bg-surface);border-top:1px solid var(--border)">
+  <div class="container" style="text-align:center">
+    <div class="reveal">
+      <h2 style="font-family:var(--ff-d);font-size:var(--text-3xl);font-weight:700;margin-bottom:var(--sp-2)">
+        Can't find what you're looking for?
+      </h2>
+      <p style="color:var(--t2);font-size:var(--text-lg);margin-bottom:var(--sp-4)">
+        Come visit us or WhatsApp us and we'll help you find it. We stock much more than shown here!
+      </p>
+      <div style="display:flex;gap:var(--sp-2);justify-content:center;flex-wrap:wrap">
+        <a href="contact.html" class="btn btn--lime">Get Directions</a>
+        <a href="https://wa.me/601XXXXXXXXX" class="btn btn--outline" target="_blank" rel="noopener">WhatsApp Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a href="index.html" class="nav__logo" aria-label="Zipo Fresh">
+          <span class="nav__logo-dot" aria-hidden="true"></span>Zipo Fresh
+        </a>
+        <p>Your trusted neighbourhood grocery store in Taman Musim Bunga, Ipoh. Fresh produce, quality essentials, every single day.</p>
+        <div class="footer__social">
+          <a href="#" class="footer__soc-link" aria-label="Facebook">📘</a>
+          <a href="#" class="footer__soc-link" aria-label="Instagram">📷</a>
+          <a href="https://wa.me/601XXXXXXXXX" class="footer__soc-link" aria-label="WhatsApp" target="_blank" rel="noopener">💬</a>
+        </div>
+      </div>
+      <div>
+        <h3 class="footer__col-title">Pages</h3>
+        <ul class="footer__links">
+          <li><a href="index.html" class="footer__link">Home</a></li>
+          <li><a href="shop.html" class="footer__link">Shop</a></li>
+          <li><a href="blog.html" class="footer__link">Blog</a></li>
+          <li><a href="about.html" class="footer__link">About</a></li>
+          <li><a href="contact.html" class="footer__link">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="footer__col-title">Categories</h3>
+        <ul class="footer__links">
+          <li><a href="shop.html?cat=fruits" class="footer__link">Fresh Fruits</a></li>
+          <li><a href="shop.html?cat=vegetables" class="footer__link">Vegetables</a></li>
+          <li><a href="shop.html?cat=dairy" class="footer__link">Dairy &amp; Eggs</a></li>
+          <li><a href="shop.html?cat=meat" class="footer__link">Meat &amp; Seafood</a></li>
+          <li><a href="shop.html?cat=beverages" class="footer__link">Beverages</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="footer__col-title">Visit Us</h3>
+        <ul class="footer__links">
+          <li class="footer__link">📍 No 751, Jalan Tasek, Taman Musim Bunga, Ipoh</li>
+          <li class="footer__link">🕖 Open Daily: 7AM – 9PM</li>
+          <li><a href="https://wa.me/601XXXXXXXXX" class="footer__link" target="_blank" rel="noopener">💬 WhatsApp Us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bot">
+      <p class="footer__copy">© <span class="js-year"></span> Zipo Fresh — Fresh Groceries in Ipoh, Perak</p>
+      <nav class="footer__legal"><a href="#">Privacy</a><a href="#">Terms</a></nav>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/601XXXXXXXXX?text=Hello%20Zipo%20Fresh!" class="whatsapp-fab" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
+<a href="#" class="back-top" aria-label="Back to top">↑</a>
+
+<script src="data/posts.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
