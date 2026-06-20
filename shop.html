@@ -13,6 +13,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,700;1,9..144,400;1,9..144,700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -31,7 +32,7 @@
       <li><a href="contact.html" class="nav__link">Contact</a></li>
     </ul>
     <div class="nav__actions">
-      <a href="contact.html" class="btn btn--outline btn--sm">📍 Find Us</a>
+      <a href="contact.html" class="btn btn--outline btn--sm"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Find Us</a>
     </div>
     <button class="nav__ham" aria-label="Toggle menu"><span></span><span></span><span></span></button>
   </div>
@@ -42,7 +43,7 @@
   <a href="blog.html"    class="nav__drawer-link">Blog</a>
   <a href="about.html"   class="nav__drawer-link">About</a>
   <a href="contact.html" class="nav__drawer-link">Contact</a>
-  <a href="contact.html" class="btn btn--lime" style="margin-top:auto">📍 Find Us in Ipoh</a>
+  <a href="contact.html" class="btn btn--lime" style="margin-top:auto"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Find Us in Ipoh</a>
 </nav>
 
 <main>
@@ -61,13 +62,13 @@
     <!-- Filter Bar -->
     <div class="filter-bar" data-filter-group role="group" aria-label="Filter by category">
       <button class="filter-chip active" data-filter="all">All Products</button>
-      <button class="filter-chip" data-filter="fruits">🍓 Fruits</button>
-      <button class="filter-chip" data-filter="vegetables">🥬 Vegetables</button>
-      <button class="filter-chip" data-filter="dairy">🥛 Dairy &amp; Eggs</button>
-      <button class="filter-chip" data-filter="meat">🥩 Meat &amp; Seafood</button>
-      <button class="filter-chip" data-filter="bakery">🍞 Bakery</button>
-      <button class="filter-chip" data-filter="beverages">🧃 Beverages</button>
-      <button class="filter-chip" data-filter="household">🏠 Household</button>
+      <button class="filter-chip" data-filter="fruits"><i class="fa-solid fa-apple-whole" aria-hidden="true"></i> Fruits</button>
+      <button class="filter-chip" data-filter="vegetables"><i class="fa-solid fa-leaf" aria-hidden="true"></i> Vegetables</button>
+      <button class="filter-chip" data-filter="dairy"><i class="fa-solid fa-glass-water" aria-hidden="true"></i> Dairy &amp; Eggs</button>
+      <button class="filter-chip" data-filter="meat"><i class="fa-solid fa-drumstick-bite" aria-hidden="true"></i> Meat &amp; Seafood</button>
+      <button class="filter-chip" data-filter="bakery"><i class="fa-solid fa-bread-slice" aria-hidden="true"></i> Bakery</button>
+      <button class="filter-chip" data-filter="beverages"><i class="fa-solid fa-bottle-water" aria-hidden="true"></i> Beverages</button>
+      <button class="filter-chip" data-filter="household"><i class="fa-solid fa-house" aria-hidden="true"></i> Household</button>
     </div>
 
     <!-- Gallery Grid -->
@@ -76,87 +77,87 @@
       <!-- Fruits -->
       <div class="gal-grid-item reveal" data-cat="fruits" role="listitem">
         <img src="images/fruits.png" alt="Fresh tropical fruits — mangoes, rambutans, dragon fruit at Zipo Fresh Ipoh" loading="lazy" width="280" height="210">
-        <div class="gal-grid-item__label">🍓 Fresh Tropical Fruits</div>
+        <div class="gal-grid-item__label"><i class="fa-solid fa-apple-whole" aria-hidden="true"></i> Fresh Tropical Fruits</div>
       </div>
       <div class="gal-grid-item reveal reveal-d1" data-cat="fruits" role="listitem">
-        <div class="placeholder-img">🍌</div>
-        <div class="gal-grid-item__label">🍌 Bananas &amp; Citrus</div>
+        <div class="placeholder-img"><i class="fa-solid fa-lemon" aria-hidden="true"></i></div>
+        <div class="gal-grid-item__label"><i class="fa-solid fa-lemon" aria-hidden="true"></i> Bananas &amp; Citrus</div>
       </div>
       <div class="gal-grid-item reveal reveal-d2" data-cat="fruits" role="listitem">
-        <div class="placeholder-img">🍉</div>
-        <div class="gal-grid-item__label">🍉 Watermelons &amp; Melons</div>
+        <div class="placeholder-img"><i class="fa-solid fa-apple-whole" aria-hidden="true"></i></div>
+        <div class="gal-grid-item__label"><i class="fa-solid fa-apple-whole" aria-hidden="true"></i> Watermelons &amp; Melons</div>
       </div>
 
       <!-- Vegetables -->
       <div class="gal-grid-item reveal" data-cat="vegetables" role="listitem">
-        <div class="placeholder-img">🥬</div>
-        <div class="gal-grid-item__label">🥬 Leafy Greens — Kangkung, Bayam</div>
+        <div class="placeholder-img"><i class="fa-solid fa-leaf" aria-hidden="true"></i></div>
+        <div class="gal-grid-item__label"><i class="fa-solid fa-leaf" aria-hidden="true"></i> Leafy Greens — Kangkung, Bayam</div>
       </div>
       <div class="gal-grid-item reveal reveal-d1" data-cat="vegetables" role="listitem">
-        <div class="placeholder-img">🥦</div>
-        <div class="gal-grid-item__label">🥦 Broccoli, Kailan &amp; More</div>
+        <div class="placeholder-img"><i class="fa-solid fa-leaf" aria-hidden="true"></i></div>
+        <div class="gal-grid-item__label"><i class="fa-solid fa-leaf" aria-hidden="true"></i> Broccoli, Kailan &amp; More</div>
       </div>
       <div class="gal-grid-item reveal reveal-d2" data-cat="vegetables" role="listitem">
-        <div class="placeholder-img">🌽</div>
-        <div class="gal-grid-item__label">🌽 Corn, Carrots &amp; Root Veg</div>
+        <div class="placeholder-img"><i class="fa-solid fa-carrot" aria-hidden="true"></i></div>
+        <div class="gal-grid-item__label"><i class="fa-solid fa-carrot" aria-hidden="true"></i> Corn, Carrots &amp; Root Veg</div>
       </div>
 
       <!-- Dairy -->
       <div class="gal-grid-item reveal" data-cat="dairy" role="listitem">
-        <div class="placeholder-img">🥛</div>
-        <div class="gal-grid-item__label">🥛 Fresh Milk &amp; Yoghurt</div>
+        <div class="placeholder-img"><i class="fa-solid fa-glass-water" aria-hidden="true"></i></div>
+        <div class="gal-grid-item__label"><i class="fa-solid fa-glass-water" aria-hidden="true"></i> Fresh Milk &amp; Yoghurt</div>
       </div>
       <div class="gal-grid-item reveal reveal-d1" data-cat="dairy" role="listitem">
-        <div class="placeholder-img">🥚</div>
-        <div class="gal-grid-item__label">🥚 Farm Fresh Eggs</div>
+        <div class="placeholder-img"><i class="fa-solid fa-egg" aria-hidden="true"></i></div>
+        <div class="gal-grid-item__label"><i class="fa-solid fa-egg" aria-hidden="true"></i> Farm Fresh Eggs</div>
       </div>
       <div class="gal-grid-item reveal reveal-d2" data-cat="dairy" role="listitem">
-        <div class="placeholder-img">🧀</div>
-        <div class="gal-grid-item__label">🧀 Cheese &amp; Butter</div>
+        <div class="placeholder-img"><i class="fa-solid fa-cheese" aria-hidden="true"></i></div>
+        <div class="gal-grid-item__label"><i class="fa-solid fa-cheese" aria-hidden="true"></i> Cheese &amp; Butter</div>
       </div>
 
       <!-- Meat -->
       <div class="gal-grid-item reveal" data-cat="meat" role="listitem">
-        <div class="placeholder-img">🥩</div>
-        <div class="gal-grid-item__label">🥩 Fresh Chicken &amp; Beef</div>
+        <div class="placeholder-img"><i class="fa-solid fa-drumstick-bite" aria-hidden="true"></i></div>
+        <div class="gal-grid-item__label"><i class="fa-solid fa-drumstick-bite" aria-hidden="true"></i> Fresh Chicken &amp; Beef</div>
       </div>
       <div class="gal-grid-item reveal reveal-d1" data-cat="meat" role="listitem">
-        <div class="placeholder-img">🐟</div>
-        <div class="gal-grid-item__label">🐟 Fresh Seafood &amp; Fish</div>
+        <div class="placeholder-img"><i class="fa-solid fa-fish" aria-hidden="true"></i></div>
+        <div class="gal-grid-item__label"><i class="fa-solid fa-fish" aria-hidden="true"></i> Fresh Seafood &amp; Fish</div>
       </div>
 
       <!-- Bakery -->
       <div class="gal-grid-item reveal" data-cat="bakery" role="listitem">
-        <div class="placeholder-img">🍞</div>
-        <div class="gal-grid-item__label">🍞 Fresh Bread &amp; Rolls</div>
+        <div class="placeholder-img"><i class="fa-solid fa-bread-slice" aria-hidden="true"></i></div>
+        <div class="gal-grid-item__label"><i class="fa-solid fa-bread-slice" aria-hidden="true"></i> Fresh Bread &amp; Rolls</div>
       </div>
       <div class="gal-grid-item reveal reveal-d1" data-cat="bakery" role="listitem">
-        <div class="placeholder-img">🥐</div>
-        <div class="gal-grid-item__label">🥐 Pastries &amp; Croissants</div>
+        <div class="placeholder-img"><i class="fa-solid fa-bread-slice" aria-hidden="true"></i></div>
+        <div class="gal-grid-item__label"><i class="fa-solid fa-bread-slice" aria-hidden="true"></i> Pastries &amp; Croissants</div>
       </div>
 
       <!-- Beverages -->
       <div class="gal-grid-item reveal" data-cat="beverages" role="listitem">
-        <div class="placeholder-img">🧃</div>
-        <div class="gal-grid-item__label">🧃 Juices &amp; Soft Drinks</div>
+        <div class="placeholder-img"><i class="fa-solid fa-bottle-water" aria-hidden="true"></i></div>
+        <div class="gal-grid-item__label"><i class="fa-solid fa-bottle-water" aria-hidden="true"></i> Juices &amp; Soft Drinks</div>
       </div>
       <div class="gal-grid-item reveal reveal-d1" data-cat="beverages" role="listitem">
-        <div class="placeholder-img">☕</div>
-        <div class="gal-grid-item__label">☕ Coffee, Tea &amp; Teh Tarik</div>
+        <div class="placeholder-img"><i class="fa-solid fa-mug-hot" aria-hidden="true"></i></div>
+        <div class="gal-grid-item__label"><i class="fa-solid fa-mug-hot" aria-hidden="true"></i> Coffee, Tea &amp; Teh Tarik</div>
       </div>
       <div class="gal-grid-item reveal reveal-d2" data-cat="beverages" role="listitem">
-        <div class="placeholder-img">🥥</div>
-        <div class="gal-grid-item__label">🥥 Fresh Coconut Water</div>
+        <div class="placeholder-img"><i class="fa-solid fa-glass-water" aria-hidden="true"></i></div>
+        <div class="gal-grid-item__label"><i class="fa-solid fa-glass-water" aria-hidden="true"></i> Fresh Coconut Water</div>
       </div>
 
       <!-- Household -->
       <div class="gal-grid-item reveal" data-cat="household" role="listitem">
         <img src="images/shopping.png" alt="Household essentials and cleaning products at Zipo Fresh grocery store Ipoh" loading="lazy" width="280" height="210">
-        <div class="gal-grid-item__label">🏠 Household Essentials</div>
+        <div class="gal-grid-item__label"><i class="fa-solid fa-house" aria-hidden="true"></i> Household Essentials</div>
       </div>
       <div class="gal-grid-item reveal reveal-d1" data-cat="household" role="listitem">
         <img src="images/cart.png" alt="Daily grocery essentials available at Zipo Fresh in Taman Musim Bunga Ipoh" loading="lazy" width="280" height="210">
-        <div class="gal-grid-item__label">🛒 Daily Essentials</div>
+        <div class="gal-grid-item__label"><i class="fa-solid fa-basket-shopping" aria-hidden="true"></i> Daily Essentials</div>
       </div>
     </div>
   </div>
@@ -191,9 +192,9 @@
         </a>
         <p>Your trusted neighbourhood grocery store in Taman Musim Bunga, Ipoh. Fresh produce, quality essentials, every single day.</p>
         <div class="footer__social">
-          <a href="#" class="footer__soc-link" aria-label="Facebook">📘</a>
-          <a href="#" class="footer__soc-link" aria-label="Instagram">📷</a>
-          <a href="https://wa.me/601XXXXXXXXX" class="footer__soc-link" aria-label="WhatsApp" target="_blank" rel="noopener">💬</a>
+          <a href="#" class="footer__soc-link" aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+          <a href="#" class="footer__soc-link" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+          <a href="https://wa.me/601XXXXXXXXX" class="footer__soc-link" aria-label="WhatsApp" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
         </div>
       </div>
       <div>
@@ -219,9 +220,9 @@
       <div>
         <h3 class="footer__col-title">Visit Us</h3>
         <ul class="footer__links">
-          <li class="footer__link">📍 No 751, Jalan Tasek, Taman Musim Bunga, Ipoh</li>
-          <li class="footer__link">🕖 Open Daily: 7AM – 9PM</li>
-          <li><a href="https://wa.me/601XXXXXXXXX" class="footer__link" target="_blank" rel="noopener">💬 WhatsApp Us</a></li>
+          <li class="footer__link"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> No 751, Jalan Tasek, Taman Musim Bunga, Ipoh</li>
+          <li class="footer__link"><i class="fa-solid fa-clock" aria-hidden="true"></i> Open Daily: 7AM – 9PM</li>
+          <li><a href="https://wa.me/601XXXXXXXXX" class="footer__link" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> WhatsApp Us</a></li>
         </ul>
       </div>
     </div>
@@ -232,8 +233,8 @@
   </div>
 </footer>
 
-<a href="https://wa.me/601XXXXXXXXX?text=Hello%20Zipo%20Fresh!" class="whatsapp-fab" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
-<a href="#" class="back-top" aria-label="Back to top">↑</a>
+<a href="https://wa.me/601XXXXXXXXX?text=Hello%20Zipo%20Fresh!" class="whatsapp-fab" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
+<a href="#" class="back-top" aria-label="Back to top"><i class="fa-solid fa-arrow-up" aria-hidden="true"></i></a>
 
 <script src="data/posts.js"></script>
 <script src="js/main.js"></script>

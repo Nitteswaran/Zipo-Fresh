@@ -109,7 +109,7 @@ document.querySelectorAll('.newsletter-form').forEach(form => {
     const btn   = form.querySelector('button');
     if (!input?.value) return;
     const orig = btn.textContent;
-    btn.textContent = '✓ Thank you!';
+    btn.textContent = '<i class="fa-solid fa-check" aria-hidden="true"></i> Thank you!';
     btn.classList.replace('btn--dark','btn--lime');
     input.value = ''; input.disabled = true;
     setTimeout(() => {
@@ -124,7 +124,7 @@ cForm?.addEventListener('submit', e => {
   e.preventDefault();
   const btn = cForm.querySelector('[type="submit"]');
   const orig = btn.textContent;
-  btn.textContent = '✓ Message Sent!';
+  btn.textContent = '<i class="fa-solid fa-check" aria-hidden="true"></i> Message Sent!';
   btn.classList.add('btn--lime'); btn.classList.remove('btn--outline');
   setTimeout(() => {
     btn.textContent = orig; btn.classList.remove('btn--lime'); btn.classList.add('btn--outline'); cForm.reset();
@@ -161,14 +161,14 @@ function renderBlogCards(posts, container, limit = posts.length) {
       </div>
       <div class="blog-card__body">
         <div class="blog-card__meta">
-          <span>📅 ${formatDate(p.date)}</span>
-          <span>⏱ ${p.readTime}</span>
+          <span><i class="fa-solid fa-calendar-days" aria-hidden="true"></i> ${formatDate(p.date)}</span>
+          <span><i class="fa-solid fa-stopwatch" aria-hidden="true"></i> ${p.readTime}</span>
         </div>
         <h3 class="blog-card__title">${p.title}</h3>
         <p class="blog-card__exc">${p.excerpt}</p>
         <div class="blog-card__foot">
           <span class="blog-card__author">${p.author}</span>
-          <a href="blog-post.html?slug=${p.slug}" class="blog-card__read">Read →</a>
+          <a href="blog-post.html?slug=${p.slug}" class="blog-card__read">Read <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
         </div>
       </div>`;
     container.appendChild(card);
@@ -199,14 +199,14 @@ if (blogGrid && typeof BLOG_POSTS !== 'undefined') {
         </div>
         <div class="blog-card__body">
           <div class="blog-card__meta">
-            <span>📅 ${formatDate(p.date)}</span>
-            <span>⏱ ${p.readTime}</span>
+            <span><i class="fa-solid fa-calendar-days" aria-hidden="true"></i> ${formatDate(p.date)}</span>
+            <span><i class="fa-solid fa-stopwatch" aria-hidden="true"></i> ${p.readTime}</span>
           </div>
           <h2 class="blog-card__title">${p.title}</h2>
           <p class="blog-card__exc" style="-webkit-line-clamp:4">${p.excerpt}</p>
           <div class="blog-card__foot">
             <span class="blog-card__author">${p.author}</span>
-            <a href="blog-post.html?slug=${p.slug}" class="blog-card__read">Read Article →</a>
+            <a href="blog-post.html?slug=${p.slug}" class="blog-card__read">Read Article <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
           </div>
         </div>`;
     }
@@ -227,8 +227,8 @@ if (postWrap && typeof BLOG_POSTS !== 'undefined') {
       <div class="post-hero post-wrap">
         <div class="post-meta">
           <span class="badge badge--lime">${post.category}</span>
-          <span class="text-muted" style="font-size:var(--text-sm)">📅 ${formatDate(post.date)}</span>
-          <span class="text-muted" style="font-size:var(--text-sm)">⏱ ${post.readTime}</span>
+          <span class="text-muted" style="font-size:var(--text-sm)"><i class="fa-solid fa-calendar-days" aria-hidden="true"></i> ${formatDate(post.date)}</span>
+          <span class="text-muted" style="font-size:var(--text-sm)"><i class="fa-solid fa-stopwatch" aria-hidden="true"></i> ${post.readTime}</span>
         </div>
         <h1 class="post-title">${post.title}</h1>
         <p style="font-size:var(--text-lg);color:var(--t2);line-height:1.75">${post.excerpt}</p>
@@ -240,6 +240,6 @@ if (postWrap && typeof BLOG_POSTS !== 'undefined') {
   } else {
     postWrap.innerHTML = `<div style="text-align:center;padding:5rem 2rem">
       <h2 style="font-family:var(--ff-d);font-size:var(--text-4xl);margin-bottom:1rem">Post Not Found</h2>
-      <a href="blog.html" class="btn btn--lime">← Back to Blog</a></div>`;
+      <a href="blog.html" class="btn btn--lime"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Back to Blog</a></div>`;
   }
 }

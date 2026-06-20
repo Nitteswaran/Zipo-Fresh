@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,700;1,9..144,400;1,9..144,700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
   <link rel="stylesheet" href="../css/style.css">
   <style>
     body{background:var(--bg)}
@@ -33,13 +34,13 @@
   <aside class="admin-sidebar">
     <div class="admin-logo">Zipo<span>Admin</span></div>
     <nav class="admin-nav">
-      <button class="admin-nav-btn active" onclick="showPanel('posts')">📰 Blog Posts</button>
-      <button class="admin-nav-btn" onclick="showPanel('new-post')">✍️ New Post</button>
-      <button class="admin-nav-btn" onclick="showPanel('export')">📦 Export Data</button>
-      <button class="admin-nav-btn" onclick="showPanel('guide')">📖 How to Use</button>
+      <button class="admin-nav-btn active" onclick="showPanel('posts')"><i class="fa-solid fa-newspaper" aria-hidden="true"></i> Blog Posts</button>
+      <button class="admin-nav-btn" onclick="showPanel('new-post')"><i class="fa-solid fa-pen-nib" aria-hidden="true"></i> New Post</button>
+      <button class="admin-nav-btn" onclick="showPanel('export')"><i class="fa-solid fa-box" aria-hidden="true"></i> Export Data</button>
+      <button class="admin-nav-btn" onclick="showPanel('guide')"><i class="fa-solid fa-book-open" aria-hidden="true"></i> How to Use</button>
     </nav>
     <div style="margin-top:auto;padding-top:var(--sp-4);border-top:1px solid var(--border)">
-      <a href="../index.html" class="btn btn--outline btn--sm" style="width:100%;justify-content:center">← View Website</a>
+      <a href="../index.html" class="btn btn--outline btn--sm" style="width:100%;justify-content:center"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> View Website</a>
     </div>
   </aside>
 
@@ -110,7 +111,7 @@
           <textarea id="p-content" class="form-textarea richtext" style="min-height:320px" placeholder="&lt;p&gt;Your article content here…&lt;/p&gt;&#10;&lt;h2&gt;Section Heading&lt;/h2&gt;&#10;&lt;p&gt;More content…&lt;/p&gt;" required></textarea>
         </div>
         <div style="display:flex;gap:.75rem">
-          <button type="submit" class="btn btn--lime">💾 Save Post</button>
+          <button type="submit" class="btn btn--lime"><i class="fa-solid fa-floppy-disk" aria-hidden="true"></i> Save Post</button>
           <button type="button" class="btn btn--outline" onclick="cancelEdit()">Cancel</button>
         </div>
       </form>
@@ -143,19 +144,19 @@
       </div>
       <div style="max-width:680px;display:flex;flex-direction:column;gap:var(--sp-4)">
         <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--r-lg);padding:var(--sp-4)">
-          <h3 style="font-size:var(--text-xl);font-weight:700;margin-bottom:var(--sp-2)">📰 Step 1 — Write a Post</h3>
+          <h3 style="font-size:var(--text-xl);font-weight:700;margin-bottom:var(--sp-2)"><i class="fa-solid fa-newspaper" aria-hidden="true"></i> Step 1 — Write a Post</h3>
           <p style="color:var(--t2);font-size:var(--text-sm);line-height:1.7">Go to <strong>"New Post"</strong> in the sidebar. Fill in all the fields. For the content, you can use simple HTML tags like &lt;p&gt;, &lt;h2&gt;, &lt;strong&gt;, &lt;em&gt;, &lt;ul&gt;, &lt;blockquote&gt;. Click <strong>"Save Post"</strong>.</p>
         </div>
         <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--r-lg);padding:var(--sp-4)">
-          <h3 style="font-size:var(--text-xl);font-weight:700;margin-bottom:var(--sp-2)">📦 Step 2 — Export</h3>
+          <h3 style="font-size:var(--text-xl);font-weight:700;margin-bottom:var(--sp-2)"><i class="fa-solid fa-box" aria-hidden="true"></i> Step 2 — Export</h3>
           <p style="color:var(--t2);font-size:var(--text-sm);line-height:1.7">Go to <strong>"Export Data"</strong>. Click <strong>"Copy to Clipboard"</strong>. This gives you the complete <code style="color:var(--lime)">posts.js</code> file content with all your posts.</p>
         </div>
         <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--r-lg);padding:var(--sp-4)">
-          <h3 style="font-size:var(--text-xl);font-weight:700;margin-bottom:var(--sp-2)">💾 Step 3 — Publish</h3>
+          <h3 style="font-size:var(--text-xl);font-weight:700;margin-bottom:var(--sp-2)"><i class="fa-solid fa-floppy-disk" aria-hidden="true"></i> Step 3 — Publish</h3>
           <p style="color:var(--t2);font-size:var(--text-sm);line-height:1.7">Open <code style="color:var(--lime)">data/posts.js</code> in any text editor (Notepad works fine). Paste the copied content, replacing everything. Save. Done — your post is live!</p>
         </div>
         <div style="background:rgba(181,242,61,.06);border:1px solid var(--lime-bdr);border-radius:var(--r-lg);padding:var(--sp-4)">
-          <h3 style="font-size:var(--text-xl);font-weight:700;margin-bottom:var(--sp-2);color:var(--lime)">💡 SEO Tips for Posts</h3>
+          <h3 style="font-size:var(--text-xl);font-weight:700;margin-bottom:var(--sp-2);color:var(--lime)"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i> SEO Tips for Posts</h3>
           <ul style="color:var(--t2);font-size:var(--text-sm);line-height:1.9;padding-left:1.25rem;list-style:disc">
             <li>Include "Ipoh" and "Zipo Fresh" in your title naturally</li>
             <li>Keep your excerpt to 1–2 sentences, keyword-rich</li>
@@ -172,7 +173,7 @@
 </div>
 
 <!-- Toast Notification -->
-<div class="toast" id="toast">✓ Saved!</div>
+<div class="toast" id="toast"><i class="fa-solid fa-check" aria-hidden="true"></i> Saved!</div>
 
 <script src="../data/posts.js"></script>
 <script>
@@ -224,7 +225,7 @@ function renderPostsList() {
       <div class="admin-post-item__actions">
         <button class="btn btn--outline btn--sm" onclick="editPost(${p.id})">Edit</button>
         <button class="btn btn--sm" style="color:#ff5050;border:1px solid rgba(255,80,80,.3);background:rgba(255,80,80,.06)" onclick="deletePost(${p.id})">Delete</button>
-        <a href="../blog-post.html?slug=${p.slug}" target="_blank" class="btn btn--outline btn--sm">View ↗</a>
+        <a href="../blog-post.html?slug=${p.slug}" target="_blank" class="btn btn--outline btn--sm">View <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
       </div>
     </div>`).join('');
 }
@@ -325,7 +326,7 @@ function copyExport() {
 
 function showToast(msg) {
   const t = document.getElementById('toast');
-  t.textContent = '✓ ' + msg;
+  t.textContent = '<i class="fa-solid fa-check" aria-hidden="true"></i> ' + msg;
   t.classList.add('show');
   setTimeout(() => t.classList.remove('show'), 3500);
 }
